@@ -27,6 +27,13 @@ public class ApplicationController {
 		return "Hola mundo";
 	}
 
+	@RequestMapping(value = { "/getUsersExample" }, method = { RequestMethod.GET })
+	@ResponseBody
+	public ResponseEntity<List<ApplicationUser>> getUsersExample() {
+		List<ApplicationUser> users = applicationService.getUsers();
+		return new ResponseEntity<>(users, HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = { "/getUsers" }, method = { RequestMethod.GET })
 	@ResponseBody
 	public ResponseEntity<List<ApplicationUser>> getUsers() {

@@ -13,7 +13,11 @@ public class ApplicationService {
     @Autowired
     DbService dbService;
 
-    public List<ApplicationUser> getUsers() {
+    public List<ApplicationUser> getUsersExample() {
         return dbService.getUsersExample();
+    }
+    
+    public List<ApplicationUser> getUsers() {
+        return dbService.getUsersFromDatabase();
     }
 }

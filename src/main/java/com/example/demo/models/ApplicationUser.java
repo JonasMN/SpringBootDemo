@@ -1,58 +1,66 @@
 package com.example.demo.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity(name = "Usuarios")
 public class ApplicationUser {
-    private String nombre;
-    private String apellido;
-    private String telefono;
-    private String dni;
-    private String correo;
 
-    // Constructor
-    public ApplicationUser(String nombre, String apellido, String telefono, String dni, String correo) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.dni = dni;
-        this.correo = correo;
-    }
+	@Id
+	private String dni;
+	private String nombre;
+	private String apellido;
+	private String telefono;
+	private String correo;
 
-    public String getNombre() {
-        return nombre;
-    }
+	public ApplicationUser() {
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public ApplicationUser(String dni, String nombre, String apellido, String telefono, String correo) {
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.correo = correo;
+	}
 
-    public String getApellido() {
-        return apellido;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getTelefono() {
-        return telefono;
-    }
+	public String getApellido() {
+		return apellido;
+	}
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 
-    public String getDni() {
-        return dni;
-    }
+	public String getTelefono() {
+		return telefono;
+	}
 
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
 
-    public String getCorreo() {
-        return correo;
-    }
+	public String getDni() {
+		return dni;
+	}
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
 }

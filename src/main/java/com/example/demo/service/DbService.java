@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.models.ApplicationUser;
@@ -10,6 +11,13 @@ import com.example.demo.models.ApplicationUser;
 
 @Service("DbService")
 public class DbService {
+	
+	private final UserRepository userRepository;
+
+    @Autowired
+    public DbService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<ApplicationUser> getUsersExample() {
         List<ApplicationUser> usuarios = new ArrayList<>();
@@ -21,5 +29,9 @@ public class DbService {
         usuarios.add(new ApplicationUser("Pedro", "Sánchez", "999999999", "54321098E", "pedro@example.com"));
 
         return usuarios;
+    }
+    
+    public List<ApplicationUser> getUsersFromDatabase() {
+        return userRepository.findAll();
     }
 }
